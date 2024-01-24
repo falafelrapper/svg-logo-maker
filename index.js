@@ -1,7 +1,7 @@
 // Main script
 const inquirer = require('inquirer');
 const fs = require('fs');
-// const generateShape = require('./lib/shapes.js')
+const { Circle, Square, Triangle, Shape } = require('./lib/shapes.js');
 
 const questions = [
     {
@@ -26,31 +26,38 @@ const questions = [
         name: 'shapecolor',
     },
 ];
- 
+
 
 function init() {
+    let selectedShape;
     inquirer
         .prompt(questions)
         .then((answers) => {
             console.log(answers);
             switch (answers.shape) {
-                case "Circle":
-                //create a circle instance with the new keyword
-                  break;
-                case "Square":
-                //create a square instance with the new keyword
-                  break;
-      
-                case "Triangle":
-                //create a triangle instance with the new keyword
-                  break;
+                case [ 'Circle' ]:
+                    //create a circle instance with the new keyword
+                    selectedShape = new Circle(answers.text, answers.textcolor);
+                    break;
+                case [ 'Square' ]:
+                    selectedShape = new Square(answers.text, answers.textcolor);
+                    break;
+
+                case [ 'Triangle' ]:
+                    //create a triangle instance with the new keyword
+                    selectedShape = new Triangle(answers.text, answers.textcolor);
+                    break;
             }
-            // const finalSVG = generateShape(answers);
+
+            selectedShape.setColor(answers.shapecolor)
+
+            const finalSVG = selectedShape.getSVG();
 
             fs.writeFile('./shape.SVG', finalSVG, (err) =>
                 err ? console.log(err) : console.log('Successfully created your logo!')
             );
         })
+        .catch((error) => console.error(error));
 };
 
 init();
