@@ -35,7 +35,7 @@ THEN I am shown a 300x200 pixel image that matches the criteria I entered
 
 After completing the challenge, we should now have a working index.js file that will allow you to answer a series of questions now. From there, after completing these questions, you should be presented with a new .SVG file in your folder after you have downloaded this file.
 
-To view a demo of this application, please click the following link here.
+To view a demo of this application, please click [here.](https://drive.google.com/file/d/10HVT6rJ-OYl9dtL9rxSMAW0NvuIWFe2e/view?usp=sharing) If you would like to view a sample SVG, you may click [here](https://drive.google.com/file/d/18PRtZMQcuqcXPftJhyPF8oAJ3JuqxzL2/view?usp=sharing) as well.
 
 ## Credits
 This code was completed by Zachary Roy
